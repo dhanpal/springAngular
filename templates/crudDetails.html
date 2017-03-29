@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>B&alpha;NCS Upgrade Test Automation</title>
+    <link href="css/external/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/internal/sb-admin.css" rel="stylesheet"/>
+    <link href="css/external/morris.css" rel="stylesheet"/>
+    <link href="css/external/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <!--link rel="stylesheet" href="css/external/angular-data-grid.bootstrap.css" /-->
+</head>
+
+<body ng-app="crudAction" ng-controller="crudActionController" disable-right-click="true">
+
+
+<h1>DSC</h1>
+<div ng-show="showData">
+	<p>angular.element($0).scope()</p>
+	<p>{{hdr.header}} : {{selectedObject[hdr.header]}}</p>
+{{products}}
+</div>
+
+<script src="js/internal/controllers/crudDetails.js"></script>
+</body>
+</html>

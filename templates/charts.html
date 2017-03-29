@@ -1,0 +1,79 @@
+<div class="row">
+	<div class="col-lg-12">
+    	<div class="panel panel-primary">
+        	<div class="panel-heading">
+            	<h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> SI Processing Per Minute</h3>
+            </div>
+            <div class="panel-body">
+            	<div area-chart="" area-data="msgReceivedPerMin" area-xkey="minutes" area-ykeys='msgPerMinChartYkeys' area-labels='msgPerMinChartLbls' area-colors='msgPerMinChartColors'> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+	<div class="col-lg-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Total Processing Summary</h3>
+			</div>
+			<div class="panel-body">
+				<div donut-chart="" donut-data="donutChartData" donut-colors="donutchartColors"></div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Rejected Messages</h3>
+			</div>
+			<div class="panel-body">
+            	<div bar-chart="" bar-data="rjtMsgsData" bar-xkey='rjtMsgsChartXkeys' bar-ykeys='rjtMsgsChartYkeys' bar-labels='rjtMsgsChartLbls' bar-colors='rjtMsgsChartColors'> </div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Pending Messages</h3>
+			</div>
+			<div class="panel-body">
+            	<div bar-chart="" bar-data="rjtPendingData" bar-xkey='PendingMsgsChartXkeys' bar-ykeys='PendingMsgsChartYkeys' bar-labels='PendingMsgsChartLbls' bar-colors='PendingMsgsChartColors'> </div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title"><i class="fa fa-long-arrow-right"></i>CA Intraday Profile 1</h3>
+			</div>
+			<div class="panel-body">
+            	<div bar-chart="" bar-data="CA1Data" bar-xkey='ca1ChartXkeys' bar-ykeys='ca1ChartYkeys' bar-labels='ca1ChartLbls' bar-colors='ca1ChartColors'> </div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title"><i class="fa fa-long-arrow-right"></i>CA Intraday Profile 2</h3>
+			</div>
+			<div class="panel-body">
+            	<div bar-chart="" bar-data="CA2Data" bar-xkey='ca2ChartXkeys' bar-ykeys='ca2ChartYkeys' bar-labels='ca2ChartLbls' bar-colors='ca2ChartColors'> </div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title"><i class="fa fa-long-arrow-right"></i>CSC Intraday Profile 2</h3>
+			</div>
+			<div class="panel-body">
+            	<div bar-chart="" bar-data="CSCData" bar-xkey='CSCChartXkeys' bar-ykeys='CSCChartYkeys' bar-labels='CSCChartLbls' bar-colors='CSCChartColors'> </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

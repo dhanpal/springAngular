@@ -1,0 +1,78 @@
+<div style="background-color:white">
+	<br />
+	<div>
+	    <h3 style="color:#002080 ; text-align:center">{{viewDetailHeader}}</h3>
+    </div>
+
+	<div class="panel-body">
+	<div ng-repeat="hdr in headers">
+	 	<div class="col-xs-3">
+        	<input class="form-control" ng-model="hdr.header" placeholder="{{hdr.header}}" type="search" ng-change="search('CaseId')" />
+     	</div>
+	</div>
+	<input class="form-control" ng-model="keyinput" placeholder=".....Search All....." ng-change="search(keyinput)" type="search" />
+	<!--div class="table-responsive">	
+		<table class="table table-bordered table-hover table-striped">
+			<thead>
+				<tr>
+					<th ng-repeat="k in keys" ng-click="sort(k,$event)">{{k | uppercase}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in ItemsByPage[currentPage]" ng-class="{'selected':item[selectionKey] == selectedRow}" ng-click="toggleSelection(item,$index)">
+					<td ng-repeat="(key,value) in item">{{value}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div-->
+	<div  class="table-responsive">
+		<table class="table table-bordered table-hover table-striped">
+			<thead>
+				<tr>
+				 	<th ng-repeat="hdr in headers" ng-click="sort(hdr.header,$event)">{{hdr.header | uppercase}} <span class="{{upDown[hdr.header]}}" aria-hidden="true"></span></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in ItemsByPage[currentPage]" ng-class="{'selected':item[selectionKey] == selectedRow}" ng-click="toggleSelection(item,$index)">
+					<td ng-repeat="hdr in headers">{{item[hdr.header]}} </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>	
+	<!--ul class="pagination pagination-sm"-->
+	<ul class="pager">
+	
+		<li>
+			<a ng-hide="hidePrevLi" href="#" ng-click="prevPage()">Previous</a>
+		</li>
+		<li class="disabled">
+			<a ng-show="hidePrevLi">Previous</a>
+		</li>
+		
+		<li>
+			<a ng-hide="hideFirstLi" href="#" ng-disabled="true" ng-click="firstPage()">First</a>
+		</li>
+		<li class="disabled">
+			<a ng-show="hideFirstLi">First</a>
+		</li>
+		
+		<li>
+			<a ng-hide="hideNextLi" href="#" ng-click="nextPage()">Next</a>
+		</li>
+		<li class="disabled">
+			<a ng-show="hideNextLi">Next</a>
+		</li>
+		
+		<li>
+			<a ng-hide="hideLastLi" href="#" ng-click="lastPage()">Last</a>
+		</li>
+		<li class="disabled">
+			<a ng-show="hideLastLi">Last</a>
+		</li>
+		
+		<li class="next">
+			<a>Page {{currentPage + 1}} of {{totalPage}}</a>
+		</li>
+	</ul>	
+	</div>
+</div>

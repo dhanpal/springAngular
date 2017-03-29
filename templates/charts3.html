@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="my.app">
+
+  <head>
+	<script src="js/external/jquery.js"></script>
+	<script src="js/external/angular.min.js"></script>
+	<script src="js/external/raphael.min.js"></script>
+	<script src="js/external/morris.min.js"></script>
+	<script src="js/external/morris.js"></script>
+	<script src="js/external/angular.morris-chart.js"></script>
+    <link href="css/external/morris.css" rel="stylesheet"/>
+    <script src="js/internal/charts3.js"></script>
+  </head>
+
+  <body ng-controller="MyController">
+    <div donut-chart="" donut-data='chartData' donut-colors='donutChartColors' ></div>
+  
+	<!--div line-chart="" line-data='lineChartData' line-xkey='y' line-ykeys='["a", "b"]' line-labels='["Serie A", "Serie B"]' line-colors='["#31C0BE", "#c7254e"]'> </div>
+	<div line-chart="" line-data='lineChartData2' line-xkey='d' line-ykeys='["visits"]' line-labels='["visits"]' line-colors='["#31C0BE"]'> </div>
+	<div line-chart="" line-data='lineChartData3' line-xkey='processed' line-ykeys='["minutes"]' line-labels='["minutes"]' line-colors='["#31C0BE"]'> </div-->
+	<div area-chart="" area-data='lineChartData3' area-xkey='processed' area-ykeys='areaChartYKeys' area-labels='areaChartlabels' area-colors='areaChartColor'> </div>
+  </body>
+	<div ng-controller="cntrlr2">
+	<a> from second controller {{firstname}} : {{lastname}} </a>
+	</div>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Flot Chart</title>
+</head>
+<style>
+.flot-chart {
+    display: block;
+    height: 400px;
+}
+
+.flot-chart-content {
+    width: 100%;
+    height: 100%;
+}
+chart1{
+    display:none;
+    width:400px;
+    height:200px;
+}
+chart2{
+    display:none;
+    width:400px;
+    height:200px;
+}
+</style>
+<body>
+<h1> Learning flotchart with angular js </h1>
+	<div ng-app='App' ng-controller='Ctrl'>
+		
+		<div class="flot-chart">	
+			<a> chart1</a>
+			 <div class="flot-chart-content">
+				<chart1 ng-model='data'> </chart1>
+			</div>
+		</div>
+		
+		<div class="flot-chart">
+			<a> chart2</a>
+			 <div class="flot-chart-content">
+				<chart2 ng-model='data2'> </chart2>
+			</div>
+		</div>		
+	</div>
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/jquery.flot.js"></script>
+	<script src="js/jquery.flot.tooltip.min.js"></script>
+	<script src="js/jquery.flot.resize.js"></script>
+	<script src="js/jquery.flot.pie.js"></script>
+	<script>
+		var App = angular.module('App', []);
+
+		App.controller('Ctrl', function($scope) {
+    	$scope.data = [[[0, 1], [1, 5], [2, 2]]];
+
+		$scope.data2 = [{
+        label: "Series 0",
+        data: 1
+    	}, {
+        label: "Series 1",
+        data: 3
+    	}, {
+        label: "Series 2",
+        data: 9
+    	}, {
+        label: "Series 3",
+        data: 20
+    	}];
+		
+
+		});
+
+		App.directive('chart1', function() {
+    		return {
+    		    restrict: 'E',
+        		link: function(scope, elem, attrs) {
+            	var data = scope[attrs.ngModel];
+            	$.plot(elem, data, {});
+            	elem.show();
+        		}
+    		};
+		});
+		App.directive('chart2', function() {
+    		return {
+    		    restrict: 'E',
+        		link: function(scope, elem, attrs) {
+            	var data2 = scope[attrs.ngModel];
+            	$.plot(elem, data2, {series: {pie: 	{
+                show: true
+				}
+        },
+grid: 	{
+            hoverable: true
+		},
+tooltip: true,
+tooltipOpts: {
+				content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+				shifts: {
+                x: 20,
+                y: 0
+				},
+            defaultTheme: false
+			}
+			
+				});
+            	elem.show();
+        		}
+    		};
+		});
+	</script>
+</body>
+</html>
+

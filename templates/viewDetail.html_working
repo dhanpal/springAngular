@@ -1,0 +1,174 @@
+<div id="page-wrapper">
+	<div class="row">
+		<div class="panel-body">
+			<div class="col-lg-12" style="background-color:#f2f2f2">
+				<div class="panel-heading"
+					style="color:#002080 ; text-align:center;font-weight: bold;">
+					<h4>{{viewDetailHeader}}</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="panel-body">
+			<div class="col-lg-12" style="background-color:#f2f2f2">
+				<div id="columnWiseSearch"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel  panel-default">
+				<div class="panel-heading">
+					<br />
+					<input class="form-control" ng-model="keyinput" placeholder=".....Search All....."
+						ng-change="search(keyinput)" type="search" />
+					<br />
+				</div>
+				<div ng-show="showCRUDBtns">
+						<ul class="pager">
+                        	<!--li>
+                            	<a href="#" ng-click="showHideDetails(true)">Show Details</a>
+                        	</li>
+                        	<li>
+                            	<a href="#" ng-click="showHideDetails(false)">Hide Details</a>
+                        	</li>
+							<li>
+                                <a href="#" ng-click="routeToPage(1)">Create</a>
+                            </li>
+							<li>
+                                <a href="#" ng-click="routeToPage(2)">View</a>
+                            </li>
+							<li>
+                                <a href="#" ng-click="routeToPage(3)">Update</a>
+                            </li-->
+							<!--div class="md-padding dialogdemoBasicUsage" id="popupContainer"-->
+								<li>
+									<!--div class="md-padding dialogdemoBasicUsage" id="popupContainer"-->
+									<md-button class="md-primary md-raised" ng-click="viewDetails($event)">View Details</md-button>
+									<!--/div-->
+								</li>
+                                <li>
+									<!--div class="md-padding dialogdemoBasicUsage" id="popupContainer"-->
+									<md-button class="md-primary md-raised" ng-click="updateData($event)">Update Details</md-button>
+									<!--/div-->
+								</li>
+                            <!--/div-->
+						</ul>
+					<!--div ng-show="showHideDtlPanel"  ng-repeat="hdr in headers">
+						<p>{{hdr.header}} : {{selectedObject[hdr.header]}}</p>
+					</div-->
+					
+				</div>
+				<div class="panel-body">
+					<div class="table-responsive" ng-show="tableordetails">
+						<table class=" table table-bordered table-hover table-striped">
+
+							<thead>
+								<tr>
+									<th ng-repeat="hdr in headers" ng-click="sort(hdr.header,$event)">
+										{{hdr.header | uppercase}}
+										<span class="{{upDown[hdr.header]}}" aria-hidden="true"></span>
+									</th>
+								</tr>
+							</thead>
+							
+							<!--thead>
+                                <tr>
+									<div class = "headerGroups" ng-repeat="groupId in headersGroup">
+										<th ng-repeat="hdr in headers">
+											{{groupId[hdr]}}
+										</th>
+									</div>
+								</tr>
+                            </thead-->
+
+							<tbody ng-repeat="item in ItemsByPage[currentPage]">
+								<tr ng-class="{'selected':item[selectionKey] == selectedRow}"
+									ng-click="toggleSelection(item,$index)">
+									<td nowrap="true" ng-repeat="hdr in headers">{{item[hdr.header]}} </td>
+								</tr>
+							</tbody>
+
+						</table>
+					</div>
+
+					<div ng-hide="tableordetails" class="container">
+                        <div ng-show="viewEdit" style="overflow-y: scroll; height:400px;width:1000px">
+                            <form editable-form="true" name="tableform">
+                                <table class=" table table-bordered table-hover table-striped">
+                                        <tr ng-repeat="hdr in headers">
+                                            <td>{{hdr.header | uppercase}}</td>
+                                            <td>
+                                            {{selectedObject[hdr.header]}}
+                                            </td>
+                                        </tr>
+									<!--tr ng-repeat="hdrgrp in headersGroup">
+										<td>{{hdrgrp.data[] | uppercase}}</td>
+                                        <td>{{selectedObject[hdrgrp.data[]]}}</td>
+									</tr-->
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+
+
+					<div ng-hide="tableordetails" class="container">
+						<div ng-hide="viewEdit" style="overflow-y: scroll; height:400px;width:1000px">
+						 	<form editable-form="true" name="tableform"> 
+   								<table class=" table table-bordered table-hover table-striped">
+           								<tr ng-repeat="hdr in headers">
+               								<td>{{hdr.header | uppercase}}</td>
+											<td>
+											<span ng-hide="editing" ng-dblclick="editItem(selectedObject)">{{selectedObject[hdr.header]}}</span>
+                							<input ng-show="editing" ng-model="selectedObject[hdr.header]" ng-blur="doneEditing(selectedObject)"></input>
+											</td>
+           								</tr>
+    							</table>
+							</form>
+ 						</div>
+					</div>
+				</div>
+				<div class="panel-footer" ng-show="tableordetails">
+					<ul class="pager">
+
+						<li>
+							<a ng-hide="hidePrevLi" href="#" ng-click="prevPage()">Previous</a>
+						</li>
+						<li class="disabled">
+							<a ng-show="hidePrevLi">Previous</a>
+						</li>
+
+						<li>
+							<a ng-hide="hideFirstLi" href="#" ng-disabled="true" ng-click="firstPage()">First
+							</a>
+						</li>
+						<li class="disabled">
+							<a ng-show="hideFirstLi">First</a>
+						</li>
+
+						<li>
+							<a ng-hide="hideNextLi" href="#" ng-click="nextPage()">Next</a>
+						</li>
+						<li class="disabled">
+							<a ng-show="hideNextLi">Next</a>
+						</li>
+
+						<li>
+							<a ng-hide="hideLastLi" href="#" ng-click="lastPage()">Last</a>
+						</li>
+						<li class="disabled">
+							<a ng-show="hideLastLi">Last</a>
+						</li>
+
+						<li class="next">
+							<a>Page {{currentPage + 1}} of {{totalPage}}</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

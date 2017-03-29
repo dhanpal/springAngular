@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script type="text/javascript" src="js/TweenLite.min.js"></script>
+<script type="text/javascript" src="js/TweenMax.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+
+<script src="js/jquery-1.11.3.min.js"></script>
+    <!--script src="js/angular.min.js"></script-->
+    <script src="js/ui-bootstrap-tpls-0.14.3.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+    <script src="js/angular-aria.min.js"></script>
+    <script src="js/angular-messages.min.js"></script>
+    <script src="js/pagination.min.js"></script>
+    <script src="js/dataGrid.min.js"></script>
+    <script src="js/underscore.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="css/Buttons.css" />
+<title>BaNCS Reg-Suite</title>
+<link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="css/angular-data-grid.bootstrap.css" />
+
+</head>
+<style>
+#btn1{
+background:#1aa3ff;
+    height:200px;
+    width:200px;
+    position:relative;
+    margin-left:10px;
+    left:9px;
+    cursor:pointer;
+    margin-top:15px;
+    color:#FFF;
+    font-size:20px;
+    font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    line-height:300px;
+    padding-left:10px;
+    text-align:center;
+
+
+}
+#btn1:hover {
+    background-color: #0099ff;
+}
+#btn2:hover {
+    background-color: #0099ff;
+}
+#btn3:hover {
+    background-color: #0099ff;
+}
+#btn4:hover {
+    background-color: #0099ff;
+}
+#btn5:hover {
+    background-color: #0099ff;
+}
+#btn6:hover {
+    background-color: #0099ff;
+}
+body{
+        margin:0;
+        background-image:url("imgs/alpha2.gif    ");
+        background-repeat: no-repeat;
+}
+.navbar {
+    background-color: blue;
+}
+.navbar-brand {
+	color:white;
+	font-size:200%;
+}
+.box{
+ top:150px;
+}
+
+</style>
+<body link="#FFFFFF">
+ <nav class="navbar  navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand"> B&alpha;NCS
+                        Regression Tool
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <hr />
+
+<div  class="box" ng-app="suiteApp" ng-controller="suiteCntrl" style="width:750px; height:450px; overflow:hidden; margin: 0 auto; position:relative; margin-top:35px;">
+
+        <a  ng-click="gotohtml('/trades')" target="main">
+                <div id="btn1" style="float:left">
+                        <p>Trade Processing</p>
+                </div>
+        </a>
+    <a ng-click="gotohtml('/wildCardSearch')" target="main">
+                <div id="btn2" style="float:left">
+                        <p>Payments</p>
+                </div>
+        </a>
+    <a href="3.html" target="main">
+                <div id="btn3" style="float:left">
+                        <p>Corporate Action </p>
+                </div>
+        </a>
+    <a href="4.html" target="main">
+                <div id="btn4" style="float:left">
+                        <p>Interfaces</p>
+                </div>
+        </a>
+    <a href="5.html" target="main">
+                <div id="btn5" style="float:left">
+                        <p>Martket Wise Functionality</p>
+                </div>
+        </a>
+    <a href="6.html" target="main">
+                <div id="btn6" style="float:left">
+                        <p>E2E-Integrated Flow</p>
+                </div>
+        </a>
+
+</div>
+<script type="text/javascript">
+var app = angular.module('suiteApp', []);
+ app.config(
+                function ($locationProvider)
+                {
+                    $locationProvider.html5Mode({
+                    enabled: true,
+                    requireBase: false
+                    }).hashPrefix("!");
+                }
+            );
+    app.controller('suiteCntrl',
+					function($scope,$location,$window)
+					{
+						$scope.gotohtml = function(view)
+										{
+											$window.location.href=view;
+										}
+					}
+				);
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="UTF-8" />
+		<title>B&alpha;NCS
+		</title>
+		<link rel="icon" href="https://angularjs.org/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="css/external/bootstrap.min.css" />
+		<script src="js/external/jquery.min.js"></script>
+		<link rel="stylesheet" href="/css/external/font-awesome.min.css" />
+		<link rel="stylesheet" href="css/external/angular-data-grid.bootstrap.css" />
+	</head>
+	<style>
+		.red {
+		color: red;
+		font-size:0px;
+		background-color: red;
+		}
+
+		.green {
+		color: green;
+		font-size:0px;
+		background-color: green
+		}
+		.selected {
+		background-color:#1aa3ff;
+		}
+	/*	.navbar {
+    	background-color: blue;
+		}*/
+		.navbar-brand {
+		color:white;
+		font-size:200%
+		}
+		.dropdown-toggle{
+		color:white;
+				
+		}
+/*		.panel{
+			height: 200px;
+    		width: 50%;
+    		background-image: url('imgs/banner.jpg'); }*/
+	</style>
+	<br />
+	<br />
+	<div class="panel">
+		<nav class="navbar navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#" ng-click="refreshView()">B&alpha;NCS
+						Regression Tool - Payments 
+					</a>
+				</div>
+				<ul class="nav navbar-nav navbar-right">
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+								Options
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#">Details</a>
+								</li>
+								<li>
+									<a href="#">Execute</a>
+								</li>
+								<li>
+									<a href="#">View Last Report</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</ul>
+			</div>
+		</nav>
+	</div>
+		<hr />
+
+	<body ng-app="myApp" ng-controller="TableCtrl" ng-cloak="true">
+	<product-color></product-color>	
+			<div class="col-xs-3">
+                <input class="form-control" ng-model="keyinput" placeholder="Advance Search" ng-change="search(keyinput)"
+                    type="search" />
+            </div>
+			<table class="table  table-hover data-table myTable">
+			<tr>
+				<th ng-repeat="k in keys" 
+					ng-click="sort(k,$event)"
+					>{{k | uppercase}}</th>
+			</tr>
+			<tr ng-repeat="item in ItemsByPage[currentPage]"
+ 				ng-class="{'selected':$index == selectedRow}"
+                ng-click="setClickedRow(item,$index)">
+				<td ng-repeat="(key,value) in item">{{value}}</td>
+			</tr>
+		</table>
+			<ul class="pagination pagination-sm">
+				<li ng-class="{active:0}">
+					<a href="#" ng-disabled="true" ng-click="firstPage()">First</a>
+
+				</li>
+				<li>
+                    <a href="#" ng-click="nextPage()">Next</a>
+                </li>
+				<li>
+                    <a href="#" ng-click="prevPage()">Previous</a>
+                </li>
+				<li>
+					<a href="#" ng-click="lastPage()">Last</a>
+				</li>
+				<li>
+					<a>Page {{currentPage + 1}} of {{totalPage}}</a>
+				</li>
+				
+			</ul>	
+	</body>
+	<script src="js/external/bootstrap.min.js"></script>
+	<script src="js/external/angular.min.js"></script>
+	<script src="js/external/ui-bootstrap-tpls-0.14.3.js"></script>
+	<script src="js/external/angular-animate.min.js"></script>
+	<script src="js/external/angular-aria.min.js"></script>
+	<script src="js/external/angular-messages.min.js"></script>
+	<script src="js/external/pagination.min.js"></script>
+	<script src="js/external/dataGrid.min.js"></script>
+	<script src="js/external/underscore.js"></script>
+	<script src="js/internal/new.js"></script>
+
+</html>
